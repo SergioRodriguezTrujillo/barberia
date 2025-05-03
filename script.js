@@ -49,6 +49,9 @@ menuLinks.forEach(link => {
 function highlightActiveSection() {
     const sections = document.querySelectorAll('.gallery-section');
     
+    // Si no hay secciones de galería (estamos en la página de inicio), salir
+    if (sections.length === 0) return;
+    
     // Obtener la posición de desplazamiento actual
     const scrollPosition = window.scrollY + 100; // Añadir offset para mejor detección
     
@@ -62,7 +65,7 @@ function highlightActiveSection() {
             // Resaltar el enlace correspondiente en el menú
             menuLinks.forEach(link => {
                 link.classList.remove('active');
-                if (link.getAttribute('href') === `#${sectionId}`) {
+                if (link.getAttribute('href') === `#${sectionId}` || link.getAttribute('href') === `galeria.html#${sectionId}`) {
                     link.classList.add('active');
                 }
             });
@@ -76,39 +79,41 @@ window.addEventListener('scroll', highlightActiveSection);
 // Inicializar la detección de sección activa al cargar la página
 document.addEventListener('DOMContentLoaded', highlightActiveSection);
 
-// Funcionalidad para abrir el modal al hacer clic en una imagen
-galleryItems.forEach(item => {
-    item.addEventListener('click', function() {
-        const img = this.querySelector('img');
-        const title = this.querySelector('.image-info h3')?.textContent || '';
-        const price = this.querySelector('.image-info p')?.textContent || '';
-        
-        modalImg.src = img.src;
-        modalCaption.textContent = title;
-        modalPrice.textContent = price;
-        modal.style.display = 'block';
-        document.body.style.overflow = 'hidden'; // Evitar scroll cuando el modal está abierto
+// Funcionalidad para abrir el modal al hacer clic en una imagen (solo si existen elementos de galería)
+if (galleryItems.length > 0 && modal) {
+    galleryItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const img = this.querySelector('img');
+            const title = this.querySelector('.image-info h3')?.textContent || '';
+            const price = this.querySelector('.image-info p')?.textContent || '';
+            
+            modalImg.src = img.src;
+            modalCaption.textContent = title;
+            modalPrice.textContent = price;
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Evitar scroll cuando el modal está abierto
+        });
     });
-});
 
-// Cerrar el modal al hacer clic en la X
-modalClose.addEventListener('click', function() {
-    modal.style.display = 'none';
-    document.body.style.overflow = ''; // Restaurar scroll
-});
-
-// Cerrar el modal al hacer clic fuera de la imagen
-modal.addEventListener('click', function(event) {
-    if (event.target === modal) {
+    // Cerrar el modal al hacer clic en la X
+    modalClose.addEventListener('click', function() {
         modal.style.display = 'none';
         document.body.style.overflow = ''; // Restaurar scroll
-    }
-});
+    });
 
-// Cerrar el modal con la tecla Escape
-document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape' && modal.style.display === 'block') {
-        modal.style.display = 'none';
-        document.body.style.overflow = ''; // Restaurar scroll
-    }
-});
+    // Cerrar el modal al hacer clic fuera de la imagen
+    modal.addEventListener('click', function(event) {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = ''; // Restaurar scroll
+        }
+    });
+
+    // Cerrar el modal con la tecla Escape
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape' && modal.style.display === 'block') {
+            modal.style.display = 'none';
+            document.body.style.overflow = ''; // Restaurar scroll
+        }
+    });
+}

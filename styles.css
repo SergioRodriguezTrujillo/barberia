@@ -49,14 +49,14 @@ img {
 
 .section-light {
     background-color: var(--light-bg);
-    padding: 60px 0;
+    padding-bottom: 60px;
 }
 
 /* Encabezado */
 header {
     background-color: rgba(233, 232, 248, 0.9);
     color: var(--text-color);
-    padding: 15px 0;
+    padding: 5px 0;
     position: sticky;
     top: 0;
     z-index: 100;
@@ -218,6 +218,25 @@ header h1 {
     font-size: 1.2rem;
 }
 
+/* Estilos para la página de galería */
+.gallery-header {
+    text-align: center;
+    padding: 40px 0;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+.page-description {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    color: var(--text-color);
+}
+
 /* Secciones de galería */
 .gallery-section {
     scroll-margin-top: 80px;
@@ -369,6 +388,240 @@ header h1 {
     color: var(--primary-color);
 }
 
+/* Estilos para las nuevas secciones de la página de inicio */
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: var(--secondary-color);
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+/* Sección Sobre Nosotros */
+.about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.about-image {
+    flex: 1;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+}
+
+.about-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.about-text h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: var(--secondary-color);
+}
+
+.about-text p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+/* Sección Barbero */
+.barber-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.barber-image {
+    flex: 1;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.barber-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+}
+
+.barber-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.barber-text h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: var(--secondary-color);
+}
+
+.barber-text p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+/* Sección Servicios */
+.services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.service-card {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.service-icon {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--primary-color);
+}
+
+.service-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.service-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: var(--secondary-color);
+}
+
+.service-card p {
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+.service-price {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.services-cta {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Sección Ubicación */
+.location-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.location-info {
+    flex: 1;
+}
+
+.location-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: var(--secondary-color);
+}
+
+.location-info p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.location-map {
+    flex: 1;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.location-map iframe {
+    border-radius: var(--border-radius);
+}
+
+/* Botones */
+.btn-primary {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 169, 157, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(30, 46, 92, 0.4);
+}
+
+.btn-whatsapp {
+    display: inline-block;
+    background-color: #25D366;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+    margin-top: 10px;
+}
+
+.btn-whatsapp:hover {
+    background-color: #128C7E;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(18, 140, 126, 0.4);
+}
+
 /* Pie de página */
 footer {
     background-color: var(--footer-bg);
@@ -411,6 +664,19 @@ footer p {
     
     .hero-text p {
         font-size: 1.4rem;
+    }
+    
+    .about-content, .barber-content, .location-content {
+        flex-direction: row;
+    }
+    
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    /* Invertir orden en tablet/desktop para la sección del barbero */
+    .barber-content {
+        flex-direction: row-reverse;
     }
 }
 
