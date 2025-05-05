@@ -3,13 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transformado - Barbería Cristiana</title>
+    <title>Barbería Renovado</title>
+    <link rel="icon" href="/img/logo 1.jpg" type="image/jpg">
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <div class="container header-container">
-            <h1>Transformado</h1>
+            <div class="logo-container">
+                <img src="/img/logo.png" alt="Logo Renovado" class="logo-img">
+                <h1>Renovado</h1>
+            </div>
             <button class="menu-toggle" aria-label="Abrir menú">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -41,11 +48,11 @@
         <section class="intro section-light">
             <div class="container">
                 <div class="hero-image">
-                    <img src="./img/0000.jpg" alt="Barbería Transformado">
+                    <img src="./img/00001.jpg" alt="Barbería Renovado">
                 </div>
                 <div class="hero-text">
-                    <h2>Barbería Cristiana</h2>
-                    <p>Transformando vidas a través de nuestro servicio</p>
+                    <h2>Barbería Cristiana Renovado</h2>
+                    <p>"Porque somos hechura suya, creados en Cristo Jesús para buenas obras" - Efesios 2:10</p>
                 </div>
             </div>
         </section>
@@ -53,16 +60,19 @@
         <!-- Sección Sobre Nosotros -->
         <section class="about-section section-white">
             <div class="container">
-                <h2 class="section-title">Nuestro Local</h2>
+                <h2 class="section-title">Nuestro Propósito</h2>
                 <div class="about-content">
                     <div class="about-image">
-                        <img src="./img/barberia.jpg" alt="Local de Barbería Transformado">
+                        <img src="./img/barberia.jpg" alt="Local de Barbería Renovado">
                     </div>
                     <div class="about-text">
-                        <h3>Un espacio diseñado para tu comodidad</h3>
-                        <p>En Barbería Transformado hemos creado un ambiente acogedor donde podrás disfrutar de un excelente servicio mientras te relajas. Nuestro local cuenta con instalaciones modernas, música agradable y un ambiente familiar donde todos son bienvenidos.</p>
-                        <p>Nos caracterizamos por mantener los más altos estándares de limpieza e higiene, utilizando herramientas esterilizadas y productos de primera calidad para garantizar tu satisfacción y seguridad.</p>
-                        <a href="galeria.html" class="btn-primary">Ver nuestros trabajos</a>
+                        <h3>Un espacio de renovación integral</h3>
+                        <p>En Barbería Renovado creemos que un buen corte de cabello es solo el comienzo de una transformación. Nuestro espacio ha sido diseñado para brindarte más que un servicio estético; es un lugar donde encontrarás paz, buena conversación y la oportunidad de renovarte por dentro y por fuera.</p>
+                        <p class="bible-verse">"Renuévense en el espíritu de su mente" (Efesios 4:23)</p>
+                        <p>Bajo este principio, nos esforzamos por crear un ambiente donde cada cliente se sienta valorado, respetado y salga no solo con una mejor apariencia, sino también con un espíritu renovado.</p>
+                        <div class="button-container">
+                            <a href="galeria.html" class="btn-primary">Descubre nuestros estilos</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -74,12 +84,13 @@
                 <h2 class="section-title">Nuestro Barbero</h2>
                 <div class="barber-content">
                     <div class="barber-text">
-                        <h3>Experiencia y profesionalismo</h3>
-                        <p>Nuestro maestro barbero cuenta con más de 10 años de experiencia en el arte del corte de cabello y cuidado de la barba. Constantemente se actualiza con las últimas tendencias y técnicas para ofrecerte el mejor servicio.</p>
-                        <p>Su pasión por la barbería y su dedicación a cada cliente hacen que cada corte sea una experiencia única. No solo te llevarás un gran estilo, sino también consejos personalizados para el cuidado de tu cabello y barba.</p>
+                        <h3>Sirviendo con excelencia y propósito</h3>
+                        <p>Nuestro barbero no solo es experto en su oficio, sino también es una persona comprometida con valores cristianos de servicio y excelencia. Con más de 10 años de experiencia, combina técnicas modernas con un trato personalizado que refleja el amor de Cristo.</p>
+                        <p class="bible-verse">"Y todo lo que hagáis, hacedlo de corazón, como para el Señor y no para los hombres" (Colosenses 3:23)</p>
+                        <p>Esta escritura guía nuestro trabajo diario, asegurándonos de que cada corte sea realizado con la mayor dedicación y cuidado, como un acto de servicio a Dios y a nuestros clientes.</p>
                     </div>
                     <div class="barber-image">
-                        <img src="./img/barbero.jpg" alt="Barbero de Transformado">
+                        <img src="./img/barbero.jpg" alt="Barbero de Renovado">
                     </div>
                 </div>
             </div>
@@ -88,35 +99,37 @@
         <!-- Sección Servicios -->
         <section class="services-section section-white">
             <div class="container">
-                <h2 class="section-title">Nuestros Servicios</h2>
+                <h2 class="section-title">Servicios de Renovación</h2>
                 <div class="services-grid">
                     <div class="service-card">
                         <div class="service-icon">
-                            <img src="./img/062.jpg" alt="Icono de corte de cabello">
+                            <img src="./img/degradados/131.png" alt="Icono de corte de cabello">
                         </div>
                         <h3>Cortes de Cabello</h3>
-                        <p>Ofrecemos una amplia variedad de estilos para todas las edades. Desde cortes clásicos hasta los más modernos con diseños personalizados.</p>
-                        <p class="service-price">Desde $8.000</p>
+                        <p>Respetamos cada cabello como parte de tu identidad, ofreciendo cortes que realzan tu personalidad y te hacen sentir renovado.</p>
+                        <p class="service-price">Desde $150.00</p>
                     </div>
                     <div class="service-card">
                         <div class="service-icon">
-                            <img src="./img/012.jpg" alt="Icono de barba">
+                            <img src="./img/barba/107.jpg" alt="Icono de barba">
                         </div>
                         <h3>Arreglo de Barba</h3>
-                        <p>Perfilado, recorte y diseño de barba con las mejores técnicas para resaltar tus facciones y mantener un aspecto impecable.</p>
-                        <p class="service-price">Desde $10.000</p>
+                        <p>Una barba bien cuidada refleja disciplina y carácter. Nuestro servicio de arreglo de barba te ayudará a mantener un aspecto distinguido que honra la imagen con la que fuiste creado.</p>
+                        <p class="service-price">Desde $50.000</p>
                     </div>
                     <div class="service-card">
                         <div class="service-icon">
-                            <img src="./img/081.jpg" alt="Icono de cejas">
+                            <img src="./img/barba/081.jpg" alt="Icono de cejas">
                         </div>
                         <h3>Arreglo de Cejas</h3>
-                        <p>Perfilado y diseño de cejas para complementar tu estilo y darle un acabado perfecto a tu imagen.</p>
-                        <p class="service-price">Desde $5.000</p>
+                        <p>Enmarcamos tus ojos con un arreglo de cejas que resalta tu mirada y completa tu imagen renovada.</p>
+                        <p class="service-price">Desde $50.000</p>
                     </div>
                 </div>
                 <div class="services-cta">
-                    <a href="galeria.html" class="btn-primary">Ver galería de estilos</a>
+                    <div class="button-container">
+                        <a href="galeria.html" class="btn-primary">Ver nuestros trabajos</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -124,18 +137,25 @@
         <!-- Sección Ubicación -->
         <section class="location-section section-light">
             <div class="container">
-                <h2 class="section-title">Nuestra Ubicación</h2>
+                <h2 class="section-title">Encuéntranos</h2>
                 <div class="location-content">
                     <div class="location-info">
-                        <h3>¿Dónde encontrarnos?</h3>
-                        <p><strong>Dirección:</strong> Calle Principal #123, Ciudad</p>
-                        <p><strong>Horario:</strong> Lunes a Sábado de 9:00 AM a 7:00 PM</p>
-                        <p><strong>Teléfono:</strong> (123) 456-7890</p>
-                        <p><strong>WhatsApp:</strong> +57 300 123 4567</p>
-                        <a href="https://wa.me/573001234567" class="btn-whatsapp" target="_blank">Contáctanos por WhatsApp</a>
+                        <h3>"Ven y renueva tu vida"</h3>
+                        <p><strong>Dirección:</strong> Calle Moncada #224 % Callamo & Cisnero</p>
+                        <p><strong>Horario:</strong> Lunes a Sábado de 9:00 AM a 6:00 PM</p>
+                        <p><strong>Teléfono:</strong> +53 54959570</p>
+                        <p class="bible-verse">"Vengan a mí todos ustedes que están cansados y agobiados, y yo les daré descanso" - Mateo 11:28</p>
+                        <div class="button-container">
+                            <a href="https://wa.me/54959570" class="btn-primary" target="_blank">Agenda tu cita por WhatsApp</a>
+                        </div>
                     </div>
                     <div class="location-map">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.9728258433495!2d-74.07800492426815!3d4.598235042504698!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f99a7eccfe58f%3A0x99cb72b35351476!2sBogot%C3%A1%2C%20Colombia!5e0!3m2!1ses!2sco!4v1714764570000!5m2!1ses!2sco" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <a href="https://maps.app.goo.gl/EUEEjC6B7d88gMLc9" target="_blank" class="map-link">
+                            <img src="/img/mapa.png" alt="Ubicación de Barbería Renovado" class="map-image">
+                            <div class="map-overlay">
+                                <span>Haz clic para ver en Google Maps</span>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -144,9 +164,10 @@
 
     <footer>
         <div class="container">
-            <h2>Barbería Transformado</h2>
-            <p>Transformando vidas a través de nuestro servicio</p>
-            <p class="copyright">© <span id="current-year"></span> Transformado - Todos los derechos reservados</p>
+            <h2>Barbería Cristiana Renovado</h2>
+            <p>"Renueva tu imagen, fortalece tu espíritu"</p>
+            <p class="bible-verse">"He aquí, yo hago nuevas todas las cosas" - Apocalipsis 21:5</p>
+            <p class="copyright">© <span id="current-year"></span> Renovado - Todos los derechos reservados</p>
         </div>
     </footer>
 
