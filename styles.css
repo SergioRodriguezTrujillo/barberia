@@ -69,14 +69,14 @@
   
   .section-light {
     background-color: var(--light-bg);
-    padding: 60px 0;
+    padding: 15px 0 60px 0;
   }
   
   /* Encabezado */
   header {
     background-color: rgba(233, 232, 248, 0.9);
     color: var(--text-color);
-    padding: 15px 0;
+    padding: 8px 0;
     position: sticky;
     top: 0;
     z-index: 100;
@@ -214,7 +214,7 @@
     overflow: hidden;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     position: relative;
-    height: 400px;
+    height: 300px;
     max-width: 1000px;
   }
   
@@ -234,10 +234,10 @@
     z-index: 10;
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    width: 80%;
+    width: 90%;
     max-width: 600px;
     background-color: rgba(0, 0, 0, 0.6);
-    padding: 20px;
+    padding: 5px;
     border-radius: 5px;
   }
   
@@ -739,9 +739,14 @@
     .gallery {
       grid-template-columns: repeat(3, 1fr);
     }
-  
+    .section-light {
+      padding: 60px 0;
+    }
     .modal-content {
       max-width: calc(100% - 20px);
+    }
+    .hero-image {
+      height: 400px;
     }
   
     .hero-text h2 {
