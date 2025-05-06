@@ -1,6 +1,6 @@
 {
   "name": "Barbería Renovados",
-  "short_name": "Renovados",
+  "short_name": "Barbería Renovados",
   "description": "Barbería Cristiana Renovados - Renueva tu imagen, fortalece tu espíritu",
   "start_url": "./index.html",
   "display": "standalone",
@@ -17,7 +17,7 @@
     {
       "src": "./img/icon-512.png",
       "type": "image/png",
-      "sizes": "1080x1080",
+      "sizes": "512x512",
       "purpose": "any maskable"
     }
   ]
