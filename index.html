@@ -9,6 +9,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+    
+    <!-- PWA: Enlaces para el manifest y los íconos -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#00a99d">
+    <link rel="apple-touch-icon" href="/img/icon-192.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 </head>
 <body>
     <header>
@@ -150,7 +157,7 @@
                         </div>
                     </div>
                     <div class="location-map">
-                        <a href="https://maps.app.goo.gl/PUtGywx4Mc9n2Sz6A?g_st=aw" target="_blank" class="map-link">
+                        <a href="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d234.01209334929933!2d-75.99512434331669!3d20.20927897772174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2scu!4v1746536718274!5m2!1ses-419!2scu" target="_blank" class="map-link">
                             <img src="./img/mapa.png" alt="Ubicación de Barbería Renovado" class="map-image">
                             <div class="map-overlay">
                                 <span>Haz clic para ver en Google Maps</span>
@@ -173,5 +180,6 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="pwa.js"></script>
 </body>
 </html>
