@@ -43,7 +43,10 @@ h6,
 strong {
   font-family: var(--title-font);
 }
-
+/* h3 {
+  text-align: center;
+  position: relative;
+} */
 p {
   font-family: var(--text-font);
 }
@@ -171,16 +174,16 @@ header h1 {
   padding: 15px;
   color: var(--text-color);
   text-decoration: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 169, 157, 0.1);
   transition: all 0.3s;
 }
 
 .menu-link:hover,
 .menu-link.active {
-  background-color: var(--light-bg);
+  background-color: rgba(240, 240, 250, 0.579);
   padding-left: 20px;
-  color: var(--primary-color);
   font-weight: bold;
+  border-bottom: 2px solid rgba(0, 169, 157);
 }
 
 .overlay {
