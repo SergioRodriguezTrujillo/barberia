@@ -1,18 +1,21 @@
-const CACHE_NAME = 'renovados-v1';
+const CACHE_NAME = 'renovados-v2'; // Incrementamos la versión para forzar la actualización
 const urlsToCache = [
   '/',
   '/index.html',
   '/galeria.html',
   '/styles.css',
   '/script.js',
+  '/pwa.js',
   '/manifest.json',
   '/img/logo.png',
   '/img/logo 1.jpg',
   '/img/barberia.jpg',
   '/img/barbero.jpg',
   '/img/00001.jpg',
-  '/img/mapa.png'
-  // Puedes añadir más recursos que quieras cachear
+  '/img/mapa.png',
+  '/img/icon-192.png',
+  '/img/icon-512.png'
+  // Se cachearán automáticamente otros recursos cuando se soliciten
 ];
 
 // Instalación del Service Worker
@@ -24,6 +27,8 @@ self.addEventListener('install', event => {
         return cache.addAll(urlsToCache);
       })
   );
+  // Forzar la activación inmediata
+  self.skipWaiting();
 });
 
 // Activación del Service Worker
@@ -38,6 +43,9 @@ self.addEventListener('activate', event => {
           }
         })
       );
+    }).then(() => {
+      // Tomar el control de todas las páginas inmediatamente
+      return self.clients.claim();
     })
   );
 });
