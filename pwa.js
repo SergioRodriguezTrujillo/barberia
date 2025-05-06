@@ -3,6 +3,14 @@ let deferredPrompt;
 const installContainer = document.createElement('div');
 const installButton = document.createElement('button');
 
+// Obtener la ruta base para GitHub Pages
+const getBasePath = () => {
+  // Obtener la ruta base del sitio (útil para GitHub Pages)
+  const scriptPath = document.currentScript.src;
+  const basePath = scriptPath.substring(0, scriptPath.lastIndexOf('/') + 1);
+  return basePath;
+};
+
 // Estilos para el contenedor de instalación - Ahora en la parte superior
 installContainer.className = 'install-container';
 installContainer.style.display = 'none';
@@ -94,8 +102,27 @@ if (isIOS) {
   
   installContainer.appendChild(contentContainer);
   
+  // Mostrar el banner de instalación inmediatamente para pruebas
+  // Esto es útil para depurar en GitHub Pages
+  document.addEventListener('DOMContentLoaded', () => {
+    // Verificar si ya se mostró el prompt recientemente
+    const lastPrompt = localStorage.getItem('installPromptDismissed');
+    const now = Date.now();
+    
+    // Si no se ha mostrado o han pasado más de 1 día
+    if (!lastPrompt || (now - parseInt(lastPrompt)) > 24 * 60 * 60 * 1000) {
+      // Mostrar el banner de instalación después de 2 segundos
+      setTimeout(() => {
+        document.body.appendChild(installContainer);
+        installContainer.style.display = 'block';
+        console.log('Banner de instalación mostrado manualmente');
+      }, 2000);
+    }
+  });
+  
   // Capturar el evento beforeinstallprompt
   window.addEventListener('beforeinstallprompt', (e) => {
+    console.log('Evento beforeinstallprompt capturado');
     // Prevenir que Chrome muestre la mini-infobar
     e.preventDefault();
     // Guardar el evento para usarlo después
@@ -110,21 +137,30 @@ if (isIOS) {
       // Mostrar nuestro propio botón de instalación inmediatamente
       document.body.appendChild(installContainer);
       installContainer.style.display = 'block';
+      console.log('Banner de instalación mostrado por evento beforeinstallprompt');
     }
   });
   
   // Manejar el clic en el botón de instalación
   installButton.addEventListener('click', async () => {
-    if (!deferredPrompt) return;
+    console.log('Botón de instalación clickeado');
     
-    // Mostrar el prompt de instalación
-    deferredPrompt.prompt();
-    
-    // Esperar a que el usuario responda
-    const { outcome } = await deferredPrompt.userChoice;
-    
-    // Limpiar la variable deferredPrompt
-    deferredPrompt = null;
+    if (deferredPrompt) {
+      console.log('Mostrando prompt de instalación nativo');
+      // Mostrar el prompt de instalación
+      deferredPrompt.prompt();
+      
+      // Esperar a que el usuario responda
+      const { outcome } = await deferredPrompt.userChoice;
+      console.log(`Usuario eligió: ${outcome}`);
+      
+      // Limpiar la variable deferredPrompt
+      deferredPrompt = null;
+    } else {
+      console.log('No hay prompt de instalación disponible');
+      // Si no hay prompt disponible, mostrar instrucciones manuales
+      alert('Para instalar la aplicación: \n1. Abre el menú de tu navegador (tres puntos en la esquina superior derecha)\n2. Selecciona "Instalar aplicación" o "Añadir a la pantalla de inicio"');
+    }
     
     // Ocultar el contenedor
     installContainer.style.display = 'none';
@@ -135,15 +171,17 @@ if (isIOS) {
   
   // Manejar el clic en el botón de cerrar
   closeButton.addEventListener('click', () => {
+    console.log('Botón de cerrar clickeado');
     installContainer.style.display = 'none';
     localStorage.setItem('installPromptDismissed', Date.now().toString());
   });
 }
 
-// Registrar el Service Worker
+// Registrar el Service Worker con ruta relativa para GitHub Pages
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js')
+    // Usar ruta relativa para el service worker
+    navigator.serviceWorker.register('./sw.js')
       .then(registration => {
         console.log('Service Worker registrado con éxito:', registration.scope);
       })
@@ -151,4 +189,46 @@ if ('serviceWorker' in navigator) {
         console.log('Error al registrar el Service Worker:', error);
       });
   });
+}
+
+// Verificar si la PWA ya está instalada
+window.addEventListener('appinstalled', (evt) => {
+  console.log('La aplicación fue instalada con éxito!');
+  // Ocultar el banner de instalación si está visible
+  installContainer.style.display = 'none';
+});
+
+// Función para verificar si la aplicación ya está instalada
+function isPWAInstalled() {
+  // Verificar si está en modo standalone (instalada)
+  if (window.matchMedia('(display-mode: standalone)').matches) {
+    console.log('La aplicación ya está instalada');
+    return true;
+  }
+  // Verificar si está en modo fullscreen (otra forma de instalación)
+  if (window.matchMedia('(display-mode: fullscreen)').matches) {
+    console.log('La aplicación ya está instalada en modo fullscreen');
+    return true;
+  }
+  // Verificar si está en modo minimal-ui (otra forma de instalación en algunos dispositivos)
+  if (window.matchMedia('(display-mode: minimal-ui)').matches) {
+    console.log('La aplicación ya está instalada en modo minimal-ui');
+    return true;
+  }
+  
+  // Para iOS
+  if (isIOS && window.navigator.standalone === true) {
+    console.log('La aplicación ya está instalada en iOS');
+    return true;
+  }
+  
+  console.log('La aplicación NO está instalada');
+  return false;
+}
+
+// Si la aplicación ya está instalada, no mostrar el banner
+if (isPWAInstalled()) {
+  console.log('No se mostrará el banner porque la aplicación ya está instalada');
+} else {
+  console.log('La aplicación no está instalada, se puede mostrar el banner');
 }
