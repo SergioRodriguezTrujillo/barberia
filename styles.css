@@ -363,13 +363,12 @@ header h1 {
   width: 100%;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
   color: white;
-  padding: 20px 15px 15px;
+  padding: 4px;
   transition: opacity 0.3s;
 }
 
 .image-info h3 {
-  font-size: 1.1rem;
-  margin-bottom: 5px;
+  font-size: 1rem;
 }
 
 .image-info p {
@@ -440,13 +439,20 @@ header h1 {
 
 .modal-close {
   position: absolute;
-  top: 15px;
+  top: 12px;
   right: 25px;
   color: white;
   font-size: 40px;
   font-weight: bold;
   cursor: pointer;
   transition: color 0.3s;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  display: flex; 
+  justify-content: center; 
+  align-items: center
 }
 
 .modal-close:hover {
@@ -763,7 +769,14 @@ footer p {
   .hero-text p {
     font-size: 1.4rem;
   }
-
+  /* Información de la imagen (nombre y precio) */
+.image-info {
+  padding: 20px 15px 15px;
+}
+  .image-info h3 {
+    font-size: 1.2rem;
+  }
+  
   .about-content,
   .barber-content,
   .location-content {
